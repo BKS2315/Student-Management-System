@@ -1,0 +1,46 @@
+package com.masai.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.masai.entity.Course;
+import com.masai.entity.Student;
+import com.masai.exceptions.CourseException;
+import com.masai.exceptions.StudentException;
+import com.masai.repository.StudentDao;
+
+@Service
+public class StudentServiceImpl implements StudentService {
+	
+	@Autowired
+	private StudentDao sd;
+
+	@Override
+	public Student registerStudent(Student student) throws StudentException {
+		Student existingStudent= sd.findByMobileNumber(student.getMobileNumber());
+		
+		if(existingStudent != null) 
+			throw new StudentException(" Student already registered with this mobile number!");
+		
+		return sd.save(student);
+	}
+
+	@Override
+	public Student getStudentByName(String name) throws StudentException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Student updateStudentDetails(Student student) throws StudentException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Course leaveTheCourse(Integer courseId, Integer studentId) throws CourseException, StudentException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,17 @@
+package com.masai.services;
+
+import org.springframework.stereotype.Service;
+
+import com.masai.entity.Admin;
+import com.masai.exceptions.AdminException;
+
+@Service
+public class AdminServiceImpl implements AdminService{
+
+	@Override
+	public Admin createAdmin(Admin admin) throws AdminException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

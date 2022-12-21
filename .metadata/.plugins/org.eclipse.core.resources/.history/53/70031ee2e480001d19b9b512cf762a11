@@ -1,0 +1,14 @@
+package com.masai.services;
+
+import com.masai.entity.Admin;
+import com.masai.exceptions.AdminException;
+
+public class AdminServiceImpl implements AdminService{
+
+	@Override
+	public Admin createAdmin(Admin admin) throws AdminException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

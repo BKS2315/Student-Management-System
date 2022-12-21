@@ -1,0 +1,61 @@
+package com.masai.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.masai.entity.Course;
+import com.masai.entity.Student;
+import com.masai.exceptions.CourseException;
+import com.masai.exceptions.StudentException;
+import com.masai.repository.CourseDao;
+import com.masai.repository.StudentDao;
+
+@Service
+public class CourseServiceImpl implements CourseService {
+	
+	@Autowired
+	private CourseDao cd;
+	
+	@Autowired
+	private StudentDao sd;
+
+	@Override
+	public Course addCourse(Course course) throws CourseException {
+		
+		Course existingCourse = cd.findByCourseName(course.getCourseName());
+		
+		if(existingCourse!=null) {
+			throw new CourseException("Course is already present with this name");
+		}
+		return cd.save(course);
+	}
+
+	@Override
+	public Course assignCourseToStudent(Course course, Integer studentId) throws CourseException, StudentException {
+		Optional<Student> student = sd.findById(studentId);
+		
+		if(student.isPresent()) {
+			Student std = student.get();
+			std.getCourses().add(course);
+			sd.save(std);
+			course.getStudents().add(std);
+		}
+		return cd.save(course);
+	}
+
+	@Override
+	public List<Student> getStudentsEnrolledInCourse(Integer courseId) throws CourseException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Course> getCourseByTopic(String topic) throws CourseException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

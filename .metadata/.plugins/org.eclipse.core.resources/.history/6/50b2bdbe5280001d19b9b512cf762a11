@@ -1,0 +1,46 @@
+package com.masai.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
+import java.util.*;
+
+@Entity
+public class Student {
+	
+	@NotNull(message = "Name cannot be null!")
+	@NotBlank(message = "Name connot be blank!")
+	private String studentName;
+	
+	@NotNull(message = "Name cannot be null!")
+	@NotBlank(message = "Name connot be blank!")
+	private String dob;
+	
+	@NotNull(message = "Name cannot be null!")
+	@NotBlank(message = "Name connot be blank!")
+	private String gender;
+	
+	@NotNull(message="Mobile number cannot be null!")
+	@NotBlank(message= "Mobile number cannot be blank!")
+	@Pattern(regexp="(^$|[0-9]{10})",message = "Mobile No is Invalid")
+	@Size(min = 10, max = 10)
+	private String mobileNumber;
+	
+	@Email
+	private String email;
+	
+	@NotNull(message = "Name cannot be null!")
+	@NotBlank(message = "Name connot be blank!")
+	private String fatherName;
+	
+	@NotNull(message = "Name cannot be null!")
+	@NotBlank(message = "Name connot be blank!")
+	private String motherName;
+	
+	
+
+}

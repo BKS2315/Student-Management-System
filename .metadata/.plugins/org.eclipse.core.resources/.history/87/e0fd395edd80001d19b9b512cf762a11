@@ -1,0 +1,14 @@
+package com.masai.services;
+
+import com.masai.entity.Student;
+import com.masai.exceptions.StudentException;
+
+public interface StudentService {
+	
+	public Student registerStudent(Student student) throws StudentException;
+	
+	public Student getStudentByName(String name) throws StudentException;
+	
+	public Student updateStudentDetails(Student student) throws StudentException;
+
+}

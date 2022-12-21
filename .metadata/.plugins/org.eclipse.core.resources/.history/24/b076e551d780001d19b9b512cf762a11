@@ -1,0 +1,46 @@
+package com.masai.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+public class Course {
+	
+	@NotNull(message = "Course name cannot be null!")
+	@NotBlank(message = "Course name cannot be blank!")
+	private String courseName;
+	
+	@NotNull(message = "Course type cannot be null!")
+	@NotBlank(message = "Course type cannot be blank!")
+	private String courseType;
+	
+	@NotNull(message = "Course description cannot be null!")
+	@NotBlank(message = "Course description cannot be blank!")
+	private String description;
+	
+	@NotNull(message = "Course duration cannot be null!")
+	@NotBlank(message = "Course duration cannot be blank!")
+	private String courseDuration;
+	
+	@NotNull(message = "Topic cannot be null!")
+	@NotBlank(message = "Topic cannot be blank!")
+	private String topic;
+	
+	@JsonIgnore
+	@ManyToMany
+	private List<Student> courses = new ArrayList<>();
+
+}
