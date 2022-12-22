@@ -18,6 +18,7 @@ This is the Rest API for Student management system, this allows to register stud
 - Admin can register/login
 - Admin can Register Courses,Students
 - Admin can assign courses to students.
-- Students can update their profile details and can leave the course.
+- Students can update their profile details and can also leave the course assigned to them.
+- 
 
 
