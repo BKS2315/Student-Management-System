@@ -19,6 +19,23 @@ This is the Rest API for Student management system, this allows to register stud
 - Admin can Register Courses,Students
 - Admin can assign courses to students.
 - Students can update their profile details and can also leave the course assigned to them.
-- 
+## Entites
+- Admin
+- Course
+- Student
+- User
+- Address
+## MySql database details
+Install and connect with database
+
+#db specific properties
+
+spring.datasource.url=jdbc:mysql://localhost:3306/studentDb
+
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+spring.datasource.username=root
+
+spring.datasource.password=2315
 
 
